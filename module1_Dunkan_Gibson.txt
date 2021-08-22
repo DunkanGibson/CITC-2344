@@ -1,0 +1,24 @@
+1.  The four types of stored program units are Procedure, Function, Database Trigger, and Package. Procedures perform tasks and can recive and return multiple values. Functions perform a task and typically return only one value. Database Trigger perform a task automatacally when a DML action occurs on an associated table or system event. Lastly, packages group related procedures and functions, which make additnal programming feature available.
+	
+2.  The major difference between a two-tier and a three-tier application model is that unlike the two-tier model, application code isn’t loaded on the client machine; it’s stored on
+an application server, also referred to as the middle tier.
+
+3.  A user interface are the windows displayed to users to enter information or take actions, such as clicking a button. The role a procedural language plays in user interfaces is providing the processing to verify info has been
+entered as well as transmitting requests, such as an SQL statement to query requested data, to the database server.
+
+4.  Select DISTINCT(i.idproduct) 
+    FROM bb_basketitem i INNER JOIN bb_basket b
+        USING(idbasket)
+        WHERE b.orderplaced = 1
+		ORDER BY i.idproduct
+
+5.Select idproduct, productname, price
+    FROM bb_product
+    WHERE type = 'C'
+    GROUP BY idproduct, productname, price
+    HAVING price > (
+        SELECT AVG(price)
+        FROM bb_product
+        WHERE type = 'C'
+    )
+
