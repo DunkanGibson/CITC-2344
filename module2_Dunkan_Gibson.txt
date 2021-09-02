@@ -24,7 +24,7 @@ changed in the block.
 6.  The code block executes the FOR loop 7 times.
 	
 	
-7.  The output of the code block is 12.25.
+7.  The output of the code block is 12.25
 
 	
 8.  The syntax errors in the code block are that "lv_junk1 = 'N';" is assigned a value with a "=" instead of a ":=" and "DBMS_OUTPUT.PUT_LINE(lv_junk2)" does not have a semicolon after it to end the line.
