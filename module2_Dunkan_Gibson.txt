@@ -21,33 +21,10 @@
 5.  When a CONSTANT option is set in a variable declaration it is used to to enforce that the value can’t be
 changed in the block.
 
-6.  The following block executes the FOR loop 7 times.
-	DECLARE
-		lv_cnt_num NUMBER(3);
-	BEGIN
-		FOR i IN 1..7 LOOP
-			lv_cnt_num := lv_cnt_num + 2;
-		END LOOP;
-	END;
+6.  The code block executes the FOR loop 7 times.
 	
-7.  Observe the following block and tell the output.
-	DECLARE
-		lv_flag_txt CHAR(1) := 'X';
-		lv_amt_num NUMBER(4,2);
-	BEGIN
-		CASE lv_flag_txt
-			WHEN 'A' THEN lv_amt_num := 14.15;
-			WHEN 'E' THEN lv_amt_num := 10.05;
-			ELSE lv_amt_num := 12.25;
-		END CASE;
-		DBMS_OUTPUT.PUT_LINE(lv_amt_num);
-	END;
 	
-	8.  Observe the following block and find the syntax errors.
-	DECLARE
-		lv_junk1 CHAR(1) := 'X';
-		lv_junk2 CHAR(1) := 'Y';
-	BEGIN
-		lv_junk1 = 'N';
-		DBMS_OUTPUT.PUT_LINE(lv_junk2)
-	END;
+7.  The output of the code block is 12.25.
+
+	
+8.  The syntax errors in the code block are that "lv_junk1 = 'N';" is assigned a value with a "=" instead of a ":=" and "DBMS_OUTPUT.PUT_LINE(lv_junk2)" does not have a semicolon after it to end the line.
