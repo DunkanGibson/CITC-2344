@@ -1,10 +1,14 @@
 DECLARE
-    lv_bill_date DATE := SYSDATE;
-    lv_last_name VARCHAR2(15);
-    lv_balance_num NUMBER(6, 2) := 1000;
+    lv_mail_news VARCHAR2(1) := 'Y';
+    lv_balance NUMBER(10,2) := 1200;
+    lv_minimum CONSTANT NUMBER(2,2) := .05;
 BEGIN
-    lv_last_name := 'Brown';
-    DBMS_OUTPUT.PUT_LINE(lv_last_name);
-    DBMS_OUTPUT.PUT_LINE(lv_bill_date);
-    DBMS_OUTPUT.PUT_LINE(lv_balance_num);
+DBMS_OUTPUT.PUT_LINE(lv_balance * lv_minimum);
+lv_mail_news := 'N';
+DBMS_OUTPUT.put_line(lv_mail_news);
+DBMS_OUTPUT.put_line(lv_balance);
+DBMS_OUTPUT.put_line(lv_minimum);
+
 END;
+    
+    
