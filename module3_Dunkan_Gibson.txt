@@ -4,80 +4,19 @@ to look up a database column’s data type and use it for the declared variable.
 2.  The %ROWTYPE attribute is used to declare a record when you want to return most or all of the columns of a row from a table. The reason you would do this is that doing so with %TYPE could get very cumbersome. It works similarly to %TYPE in that it determines the needed data type by referencing a database table structure. This attribute also goes a step further and
 reviews the table structure for all column names and data types and creates the record data type based on this information.
 
-3.  Type and run the following block in SQL Developer, then answer the questions below:
-	(a)  How many variables are declared?
-	(b)  How many variable types are used?
-	(c)  How many time does the WHILE loop repeat?
-	(d)  What are the outputs? (If you don’t see outputs, place SET SERVEROUTPUT ON;at the top ofthe block)
-	DECLARE
-		lv_qty_num NUMBER(3) := 0;
-		lv_amt_num NUMBER(5,2) := 0;
-		lv_price_num bb_product.price%TYPE;
-		lv_prod_num bb_product.idProduct%TYPE := 4;
-		lv_tot_num NUMBER(5) :=100;
-	BEGIN
-		SELECT price
-		INTO lv_price_num
-		FROM bb_product
-		WHERE idProduct = lv_prod_num;
-		WHILE (lv_price_num < lv_tot_num - lv_amt_num) LOOP
-			lv_qty_num := lv_qty_num + 1;
-			lv_amt_num := lv_qty_num*lv_price_num;
-		END LOOP;
-		DBMS_OUTPUT.PUT_LINE('qty = '|| lv_qty_num);
-		DBMS_OUTPUT.PUT_LINE('amount = '|| lv_amt_num);
-	END;
-	
-4.  Study the following block, then answer the questions below:
-		(a)  How many variables are declared?
-		(b)  How many variable types are used?
-		(c)  What are the outputs iflvqtynumhas a value of 20?
-		(d)  What are the outputs iflvqtynumhas a value of 5?
-		
-		DECLARE
-			lv_qty_num NUMBER(3);
-			lv_ship_num NUMBER(5,2);
-			lv_bask_num bb_basket.idbasket%TYPE := ;
-		BEGIN
-			SELECT quantity
-			INTO lv_qty_num
-			FROM bb_basket
-			WHERE idBasket = lv_bask_num;
-			IF lv_qty_num > 10 THEN
-				lv_ship_num := 12;
-			ELSIF lv_qty_num >= 7 THEN
-				lv_ship_num := 10;
-			ELSIF lv_qty_num >= 4 THEN
-				lv_ship_num := 7.50;
-			ELSE
-				lv_ship_num := 5;
-			END IF;
-			DBMS_OUTPUT.PUT_LINE('qty = '||lv_qty_num);
-			DBMS_OUTPUT.PUT_LINE('shipping = '||lv_ship_num);
-		END;
+3.  (a)  Five variables are declared lv_qty_num, lv_amt_num, lv_price_num, lv_prod_num, lv_tot_num 
+	(b)  Technically only 1 variable type, number, is used with two other variables using anchored data types that happen to also be number.
+	(c)  The WHILE loop repeats 3 times.
+	(d)  What the outputs are qty = 3 and amount = 85.5 
 
-5.  Study the following block, then answer the questions below:
-	(a)  What is the type ofrecbasket?
-	(b)  What is the name of the table referred in the block?
-	(c)  Which column inbbbaskethas the same type as that ofsub?
-	(d)  Describe what the block does.
-		DECLARE
-			TYPE type_basket IS RECORD (
-			bask bb_basket.idBasket%TYPE,
-			sub bb_basket.subtotal%TYPE,
-			ship bb_basket.shipping%TYPE,
-			tax bb_basket.tax%TYPE,
-			total bb_basket.total%TYPE);
-			rec_basket type_basket;
-			lv_bask_num bb_basket.idBasket%TYPE := 12;
-		BEGIN
-			SELECT idBasket, subtotal, shipping, tax, total
-			INTO rec_basket
-			FROM bb_basket
-			WHERE idBasket = lv_bask_num;
-			DBMS_OUTPUT.PUT_LINE(rec_basket.bask);
-			DBMS_OUTPUT.PUT_LINE(rec_basket.sub);
-			DBMS_OUTPUT.PUT_LINE(rec_basket.ship);
-			DBMS_OUTPUT.PUT_LINE(rec_basket.tax);
-			DBMS_OUTPUT.PUT_LINE(rec_basket.total);
-		END;
+	
+4. (a)  Three variables are declared.
+   (b)  Technically only 1 variable type, number, is used with one other variable using anchored data type that happens to also be number.
+   (c)  If lv_qty_num has a value of 20, the outputs are qty = 20 shipping = 12
+   (d)  If lv_qty_num has a value of 5, the outputs are qty = 5 shipping = 7.5
+
+
+5. (a)  The data type of recbasket is record.
+   (b)  The name of the table referred to in the block is bb_basket.
+   (c)  The Total column in bb_basket has the same type as that of sub, which is number.
+   (d)  This block creates a recod to hold values from 5 different columns from the bb_basket table. It then grabs these values from the table using the lv_bask_num to specify what basket to grab from and displays the results.
