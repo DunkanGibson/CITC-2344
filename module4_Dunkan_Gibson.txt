@@ -5,18 +5,16 @@ manipulated in PL/SQL code for handling rows returned by a SELECT statement.
 2. The purpose of exception handlers is to provide a mechanism for trapping an error that occurs in processing. Its
 code handles the error in a user-friendly manner and allows the application to continue.
 
-3. Study the following block, and answer the questions below:
-	(a) The type of cursor used in the block is explicit.
+3. 	(a) The type of cursor used in the block is explicit.
 	(b) The name of the cursor is cur_basket
 	(c) The names of the tables referred in the block are bb_basketitem and bb_product
 	(d) The situation that causes the loop to stop looping immediately is when cur_basket%NOTFOUND is evaluated as true.
 		
-4. Study the following block, and answer the questions below:
-	(a) A user defined exception is handled in the block.
+4. 	(a) A user defined exception is handled in the block.
 	(b) The name of the exception is ex_update.
 	(c) The exception is caused when the implicit cursor determies that no rows were altered by the update statement.
 	(d) The output when the exception happens is "valid original basket ID".
 	
-5. Study the following block, and answer the questions below:
-	(a) What kind of exception is handled in the block?
-	(b) What is the number-2290and how is it determined?
+5.	(a) An undefined exception is handled in the block.
+	(b) The number-2290 is an Oracle error number. It is typically determined via testing which helps develop a list of potential Oracle errors that the SQL statement
+		could generate.
