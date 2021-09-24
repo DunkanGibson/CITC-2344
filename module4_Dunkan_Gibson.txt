@@ -6,40 +6,10 @@ manipulated in PL/SQL code for handling rows returned by a SELECT statement.
 code handles the error in a user-friendly manner and allows the application to continue.
 
 3. Study the following block, and answer the questions below:
-	(a) What type of cursor is used in the block?
-	(b) What is the name of the cursor?
-	(c) What are the names of the tables referred in the block?
-	(d) What situation causes the loop stops looping immediately?
-	DECLARE
-		CURSOR cur_basket IS
-			SELECT bi.idBasket, bi.quantity, p.stock
-			FROM bb_basketitem bi INNER JOIN bb_product p
-			USING (idProduct)
-			WHERE bi.idBasket = lv_bask_num;
-	TYPE type_basket IS RECORD (
-			basket bb_basketitem.idBasket%TYPE,
-			qty bb_basketitem.quantity%TYPE,
-			stock bb_product.stock%TYPE);
-		rec_basket type_basket;
-		lv_bask_num bb_basketitem.idBasket%TYPE := 6;
-		lv_flag_txt CHAR(1) := 'Y';
-	BEGIN
-		OPEN cur_basket;
-		LOOP
-			FETCH cur_basket INTO rec_basket;
-			EXIT WHEN cur_basket%NOTFOUND;
-			IF rec_basket.stock < rec_basket.qty
-				THEN lv_flag_txt := 'N';
-			END IF;
-		END LOOP;
-			CLOSE cur_basket;
-			IF lv_flag_txt = 'Y' THEN
-				DBMS_OUTPUT.PUT_LINE('All items in stock!');
-			END IF;
-			IF lv_flag_txt = 'N' THEN
-				DBMS_OUTPUT.PUT_LINE('All items NOT in stock!');
-				END IF;
-		END;
+	(a) The type of cursor used in the block is explicit.
+	(b) The name of the cursor is cur_basket
+	(c) The names of the tables referred in the block are bb_basketitem and bb_product
+	(d) The situation that causes the loop to stop looping immediately is when cur_basket%NOTFOUND is evaluated as true.
 		
 4. Study the following block, and answer the questions below:
 	(a) What kind of exception is handled in the block?
