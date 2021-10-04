@@ -1,0 +1,21 @@
+1.  The term named program unit is used to define blocks so that they can be reused, which
+means a name needs to be assigned so that the system can find the block when you refer
+to it.
+
+2.  There are a number of advantages gained by storing a program units in the database such as improved performance, better productivity, greater ease of use, and easier scalability
+
+3.(a)  The name of the procedure is prod_name_sp
+  (b)  The mode of the parameters is IN
+  (c)  The procedure takes two parameters one being the product ID and the other being a description. It then updates the description of the specified procduct.
+  (d)  Two parameters are needed when using the procedure
+
+4.(a)  This procedure has 3 parameters
+  (b)  The names of the tables referred to in the block are BB_BASKETSTATUS and BB_BASKET?
+  (c)  The information you can get from the procedure is the status of your order and the date of the order.
+  (d)  There are 5 order statuses and a 'No Status Available' to indicate that there is not one.
+
+5.(a)  The name of the procedure is ddckbal_sp
+  (b)  The names of the tables referred in the block are DD_PAYMENT and DD_PLEDGE 
+  (c)  No, there is not a cursor in the block.
+  (d)  Yes, there is exception handling in the block.
+
