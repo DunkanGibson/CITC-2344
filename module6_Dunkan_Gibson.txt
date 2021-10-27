@@ -1,0 +1,17 @@
+1. Formal Parameters are listed in a program unit as place holders for real values that will be input. Whereas Actual Parameters are the arguments used when calling the program unit.
+
+2. The difference between passing parameter values by reference and by value is that when you pass by reference a pointer to the value in the actual parameter is created. Instead of copying the
+value from the actual parameter to the formal parameter which would be passing by value.
+
+3. The difference between using a RETURN statement in a function and a procedure is that in a function it is used to indicate a value that is returned by the function. Whereas in a procedure a return statement is used to control the flow of execution.
+
+4. Two requirements that must be met for a function to be used in an SQL statement are it must be a row function, not a group function and returned value data types must be a database data type.
+
+5.  (a) The name of the function is status_desc_sf
+	(b) The type that is returned by the function is VARCHAR2
+	(c) Create a SQL statement that uses the function.
+
+6.  (a) The name of the table referred to in the block is dd_pledge.
+	(b) The parameter of the function is the same as that of the idstatus column in table dd.pledge.
+	(c) The mode of the parameter in the function is IN.
+	(d) Create a SQL statement that uses the function.
