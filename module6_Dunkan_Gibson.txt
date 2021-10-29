@@ -9,9 +9,19 @@ value from the actual parameter to the formal parameter which would be passing b
 
 5.  (a) The name of the function is status_desc_sf
 	(b) The type that is returned by the function is VARCHAR2
-	(c) Create a SQL statement that uses the function.
-
+	(c) DECLARE
+			lv_stage_desc VARCHAR2(20);
+		BEGIN
+			lv_stage_desc := status_desc_sf(2);
+			DBMS_OUTPUT.PUT_LINE(lv_stage_desc);
+		END;
+		
 6.  (a) The name of the table referred to in the block is dd_pledge.
 	(b) The parameter of the function is the same as that of the idstatus column in table dd.pledge.
 	(c) The mode of the parameter in the function is IN.
-	(d) Create a SQL statement that uses the function.
+	(d) DECLARE
+			lv_pledge_status VARCHAR2(20);
+		BEGIN
+			lv_pledge_status := dd_plstat_sf(50);
+			DBMS_OUTPUT.PUT_LINE(lv_pledge_status);
+		END;
