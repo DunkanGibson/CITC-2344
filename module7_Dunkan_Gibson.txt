@@ -9,12 +9,17 @@
 
 4.  A private package construct is one that it can be called only by other program units in the same package thus limiting its visibility scope.
 
-5.  (a)  How many functions and procedures are there in the block?
-	(b)  How many cursors are there in the block?
-	(c)  How many exception handling are there in the block?
-	(d)  What is the name of the table referred in the block?
+5.  (a)  There are 2 functions and 2 procedures in the block.
+	(b)  There are no cursors in the block.
+	(c)  There are 2 exception handling areas in the block.
+	(d)  The name of the table referred to in the block is bb_basket
 	
-6.  (a)  What are declared in the package specification?
-	(b)  What information can you get from the functioncktaxpp?
-	(c)  What is the name of the table referred in the block?
-	(d)  Create a PL/SQL block that uses the function.
+6.  (a)  A cursor and a function are declared in the package specification.
+	(b)  The information you can get from the function ck_tax_pp is the tax rate based on the state you input.
+	(c)  The name of the table referred to in the block is bb_tax.
+	(d)  DECLARE
+			lv_state_tax NUMBER(6, 2);
+		BEGIN
+			lv_state_tax := tax_pkg.ck_tax_pp('TN');
+			DBMS_OUTPUT.PUT_LINE(lv_state_tax);
+		END
