@@ -1,0 +1,15 @@
+1. The differences in handling of local and remote dependencies is that since the data dictionary doesn’t track remote dependencies if an object in one database is changed, any remote program units using or
+depending on that object aren’t immediately changed to an INVALID status. Additionally, since the remote dependency is not tracked Oracle does not automaticlly try to recompile since it does not know until runtime that a dependency has changed and will cause an runtime error.
+
+2. Developers should be concerned with dependencies because objects that have been modified will result in dependent object becoming invalid and need to be recompiled.
+
+3. The following SQL statement lists all objects that are dependent on the BB_BASKET table.
+
+
+4. The following SQL statement displays the current status of all procedures in the users schema.
+
+
+5. From the following block the compilation you could expect is to test wheter the ASSIGN flag has or hasn't been set or used for the program unit compilation yet.
+
+
+
