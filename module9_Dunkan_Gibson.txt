@@ -1,0 +1,13 @@
+1. The fundamental differences between a program unit and a database
+trigger is that procedures and functions are called specifically by name to run. A database trigger is fired
+by an event, such as a DML statement: INSERT, UPDATE, and DELETE.
+
+2. A compound trigger is a special trigger that was intorduced in Oracle 11g to resolve the mutationg table error. A compound trigger allows for the combining of  all four triggering events into a single trigger
+object.
+
+3. You can disable a trigger by using the ALTER TABLE statment and setting the trigger status to disable.
+
+4. When an UPDATE statement is issued on the BB JUNK table, the first trigger, trig_1, fires
+first.
+
+5. The existing triggers for bb junk are deleted after running the statement.
