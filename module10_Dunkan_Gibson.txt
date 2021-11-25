@@ -1,0 +1,12 @@
+1. Wrapping a PL/SQL program unit code is a means of obfuscating the source code from other users of it. Wrapping source code protects it from most users but not necessarily all
+
+2. An Oracle built-in package is different from a package you construct in that Oracle is the one who is providing the functionality to you rather than you having to create it yourself. Additionally, many Oracle-supplied packages aren’t available by
+default, so the system administrator needs to take a few steps to make them available. For example UTL_FILE package, the system administrator must grant execution privileges for users who need to access it.
+
+3. Using native dynamic SQL is more suitable than using the DBMS SQL package when the number and types of columns to be used are known, the number and type of bind variables are known, you want to perform DDL statements, or you’re running the statement only once or twice.
+
+4.  (a) Items :price and :id represent placeholder names.
+	(b) lv_a contains a cursor reference.
+	(c) The identifier value should be supplied for the p_one parameter which in this case would most likely be a column name.
+	
+5. Assumimg the following is part of a complete block, two and three are used to represent the association of placeholders in the SQL statement with PL/SQL variables or parameters.
